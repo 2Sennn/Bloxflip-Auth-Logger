@@ -12,4 +12,6 @@ How to setup:
 
 DISCLAIMER: I AM NOT INTO LOGGING PEOPLE, I JUST MADE THIS CAUSE I WAS BORED.
 
+Also leave a star on this repository if you like it <3
+
 ![Footer](./footer.png)
